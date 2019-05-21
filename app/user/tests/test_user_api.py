@@ -28,7 +28,7 @@ class PublicUserApiTests(TestCase):
             'password': 'testpass',
             'name': 'Test name'
         }
-        #request
+
         res = self.client.post(CREATE_USER_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
@@ -133,6 +133,3 @@ class PrivateUserApiTests(TestCase):
         self.assertEqual(self.user.name, payload['name'])
         self.assertTrue(self.user.check_password(payload['password']))
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-
-
-
